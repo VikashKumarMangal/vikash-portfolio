@@ -1,0 +1,227 @@
+/* ---------------------------------------------------- */
+/* 1. Global Styles & Color Variables */
+/* ---------------------------------------------------- */
+
+:root {
+    /* Define a color palette for easy theme changes */
+    --primary-color: #007bff;
+    /* A nice blue for main actions/highlights */
+    --secondary-color: #28a745;
+    /* Green for success or secondary actions */
+    --background-dark: #1f2833;
+    --background-light: #f4f4f9;
+    --text-light: #f4f4f9;
+    --text-dark: #333;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    scroll-behavior: smooth;
+}
+
+/* ---------------------------------------------------- */
+/* 2. Typography & Highlights */
+/* ---------------------------------------------------- */
+
+.highlight {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+/* ---------------------------------------------------- */
+/* 3. Button Styles (Reusable) */
+/* ---------------------------------------------------- */
+
+.logo {
+    color: black;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: "Roboto";
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    margin-top: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: 2px solid var(--primary-color);
+}
+
+.primary-btn:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    /* Subtle hover effect */
+}
+
+/* ---------------------------------------------------- */
+/* 4. Layout: Flexbox for Header & Content Sections */
+/* ---------------------------------------------------- */
+
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    position: sticky;
+    /* Make it sticky for a modern feel */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: var(--text-light);
+    margin-left: 20px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.desktop-nav a:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.content-section {
+    padding: 80px 5%;
+    min-height: 50vh;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    /* Takes up most of the viewport height */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* ---------------------------------------------------- */
+/* 5. Advanced Layout: CSS Grid for Skills */
+/* ---------------------------------------------------- */
+
+.skill-grid-container {
+    background-color: #e6e6e6;
+    text-align: center;
+}
+
+.skill-grid-container h2 {
+    margin-bottom: 40px;
+}
+
+.skill-grid-container>div:not(h2) {
+    /* Target the skill items */
+    display: grid;
+    /* Create a responsive grid: min 250px columns, maximum possible */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-item {
+    background-color: var(--text-light);
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------------------------------------------- */
+/* 6. Subtle Animations */
+/* ---------------------------------------------------- */
+
+/* Keyframes for a pulsing button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.imageProject {
+    width: 100px;
+    height: 70px;
+    border-radius: 10px;
+}
+
+/* ---------------------------------------------------- */
+/* 7. Responsiveness (Media Queries) */
+/* ---------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+    /* Hide desktop navigation on smaller screens */
+    .desktop-nav {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        /* Smaller headings on mobile */
+    }
+
+    /* Reverse layout for About section on mobile */
+    .about-me-grid {
+        display: block;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin-bottom: 20px;
+    }
+}
